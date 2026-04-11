@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProfileController;
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 
@@ -49,3 +50,11 @@ Route::post('/buy-now', [OrderController::class, 'buyNow'])->name('buy.now');
 //History
 Route::get('/orders', [OrderController::class, 'history'])->name('orders.history');
 Route::get('/orders/{id}', [OrderController::class, 'detail'])->name('orders.detail');
+
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+Route::post('/profile/alamat', [ProfileController::class, 'storeAlamat'])->name('profile.alamat.store');
+Route::get('/profile/alamat/{id}/default', [ProfileController::class, 'setDefault'])->name('profile.alamat.default');
+Route::delete('/profile/alamat/{id}', [ProfileController::class, 'deleteAlamat'])
+    ->name('profile.alamat.delete');
+Route::put('/profile/update', [ProfileController::class, 'updateProfile'])
+    ->name('profile.update');

@@ -26,6 +26,7 @@ class User extends Authenticatable
         'nama_lengkap',
         'nama_pengguna',
         'email',
+        'nomor_telepon',
         'kata_sandi',
     ];
 
@@ -64,5 +65,9 @@ class User extends Authenticatable
             'id_pengguna',
             // 'id_role'
         );
+    }
+
+    public function alamat() {
+        return $this->hasMany(Alamat::class, ' id_pengguna');
     }
 }

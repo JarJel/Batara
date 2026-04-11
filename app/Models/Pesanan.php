@@ -13,7 +13,7 @@ class Pesanan extends Model
     protected $fillable = [
         'id_pengguna',
         'total_harga_produk',
-        'status'
+        'status_pesanan'
     ];
 
     public function items()

@@ -39,7 +39,7 @@ class OrderController extends Controller
                     'qty' => $request->qty ?? 1
                 ]
             ]);
-        } 
+        }
         // =====================
         // CASE 2: DARI CART
         // =====================
@@ -95,5 +95,17 @@ class OrderController extends Controller
         Cart::where('id_pengguna', $user->id_pengguna)->delete();
 
         return redirect('/orders')->with('success', 'Pesanan berhasil dibuat!');
+    }
+
+    public function history()
+    {
+        $user = Auth::user();
+
+        $orders = Pesanan::where('id_pengguna', $user->id_pengguna)
+            ->with('items')
+            ->orderBy('id_pesanan', 'desc')
+            ->get();
+
+        return view('orders.history', compact('orders'));
     }
 }

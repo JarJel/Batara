@@ -11,7 +11,10 @@ return new class extends Migration
         // Tabel produk
         Schema::create('produk', function (Blueprint $table) {
             $table->increments('id_produk');
-            $table->unsignedInteger('id_toko');
+
+            // ✅ cukup sekali saja
+            $table->unsignedInteger('id_toko')->nullable();
+
             $table->string('nama_produk', 150);
             $table->text('deskripsi_produk')->nullable();
             $table->decimal('harga_dasar', 12, 2);
@@ -20,7 +23,7 @@ return new class extends Migration
             $table->unsignedInteger('id_kategori')->nullable();
             $table->timestamp('created_at')->useCurrent();
 
-            $table->index('id_toko');
+            $table->index('id_toko');       // optional tapi bagus
             $table->index('id_kategori');
         });
 

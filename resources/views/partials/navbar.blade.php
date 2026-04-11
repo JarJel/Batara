@@ -409,7 +409,7 @@
                             </li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
-                                <a class="dropdown-item" href="{{ url('/profil') }}">
+                                <a class="dropdown-item" href="{{ route('profile') }}">
                                     <i class="fa-regular fa-user me-2"></i> Profil Saya
                                 </a>
                             </li>

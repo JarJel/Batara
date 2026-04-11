@@ -490,7 +490,7 @@
             @endforeach
           </div>
 
-          {{-- ALAMAT --}}
+          <!-- {{-- ALAMAT --}}
           <div class="co-card">
             <div class="co-card-header">
               <div class="step-badge">2</div>
@@ -540,9 +540,9 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          {{-- PENGIRIMAN --}}
+          <!-- {{-- PENGIRIMAN --}}
           <div class="co-card">
             <div class="co-card-header">
               <div class="step-badge">3</div>
@@ -582,7 +582,7 @@
                 <div class="ship-free">Gratis</div>
               </label>
             </div>
-          </div>
+          </div> -->
 
           {{-- PEMBAYARAN --}}
           <div class="co-card">

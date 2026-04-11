@@ -895,7 +895,7 @@
                         Produk lokal berkualitas, pengiriman terpercaya.
                     </p>
                     <div class="hero-cta">
-                        <a href="{{ url('/produk') }}" class="btn-hero-primary">
+                        <a href="#produk" class="btn-hero-primary">
                             Belanja Sekarang
                         </a>
                         <a href="{{ url('/bumdes') }}" class="btn-hero-outline">
@@ -1018,7 +1018,7 @@
     </section>
 
     {{-- ===== PRODUK TERLARIS ===== --}}
-    <section class="products-section">
+    <section id="produk" class="products-section">
         <div class="container">
             <div class="d-flex align-items-end justify-content-between section-header">
                 <div>
@@ -1026,9 +1026,9 @@
                     <h2 class="section-title mb-1">Produk Pilihan Hari Ini</h2>
                     <p class="section-subtitle mb-0">Dipilih berdasarkan popularitas & rating pembeli</p>
                 </div>
-                <a href="{{ url('/produk') }}" class="btn-see-all d-none d-sm-flex">
+                <!-- <a href="{{ url('/produk') }}" class="btn-see-all d-none d-sm-flex">
                     Lihat Semua <i class="fa-solid fa-arrow-right"></i>
-                </a>
+                </a> -->
             </div>
 
             <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
