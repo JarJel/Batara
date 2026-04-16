@@ -9,31 +9,35 @@ use App\Models\Cart;
 class CartController extends Controller
 {
     public function add(Request $request)
-    {
-        $user = Auth::user();
+{
+    $user = auth()->user();
 
-        // cek apakah produk sudah ada di cart
-        $cart = Cart::where('id_pengguna', $user->id_pengguna)
-            ->where('id_produk', $request->id_produk)
-            ->first();
+    $keranjang = \App\Models\Cart::where('id_pengguna', $user->id_pengguna)
+        ->where('id_produk', $request->id_produk)
+        ->first();
 
-        if ($cart) {
-            // kalau sudah ada ➜ tambah qty
-            $cart->qty += 1;
-            $cart->save();
-        } else {
-            // kalau belum ➜ insert baru
-            Cart::create([
-                'id_pengguna' => $user->id_pengguna,
-                'id_produk' => $request->id_produk,
-                'qty' => 1
-            ]);
-        }
-
-        return back()->with('success', 'Produk ditambahkan ke keranjang');
+    if ($keranjang) {
+        $keranjang->qty += 1;
+        $keranjang->save();
+    } else {
+        \App\Models\Cart::create([
+            'id_pengguna' => $user->id_pengguna,
+            'id_produk' => $request->id_produk,
+            'qty' => 1
+        ]);
     }
 
-    public function index() {
+    // hitung total item
+    $total = \App\Models\Cart::where('id_pengguna', $user->id_pengguna)->sum('qty');
+
+    return response()->json([
+        'status' => true,
+        'total' => $total
+    ]);
+}
+
+    public function index()
+    {
         $user = Auth::user();
 
         $cartItems = Cart::where('id_pengguna', $user->id_pengguna)
@@ -42,14 +46,15 @@ class CartController extends Controller
             ->get();
 
         $total = 0;
-        foreach($cartItems as $item) {
+        foreach ($cartItems as $item) {
             $total += $item->harga_dasar * $item->qty;
         }
 
-        return view('cart.index', compact('cartItems', 'total'));
+        return view('user.cart.index', compact('cartItems', 'total'));
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         Cart::where('id_keranjang', $id)->delete();
         return back()->with('success', 'Item dihapus dari keranjang');
     }

@@ -352,88 +352,102 @@
             <ul class="navbar-nav align-items-center gap-1 gap-lg-2 ms-lg-2">
 
                 @guest
-                    <li class="nav-item">
-                        <a href="{{ route('login') }}" class="btn btn-nav-outline">
-                            <i class="fa-regular fa-user me-1"></i> Masuk
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('register') }}" class="btn btn-nav-fill">
-                            Daftar
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a href="{{ route('login') }}" class="btn btn-nav-outline">
+                        <i class="fa-regular fa-user me-1"></i> Masuk
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('register') }}" class="btn btn-nav-fill">
+                        Daftar
+                    </a>
+                </li>
                 @else
-                    <!-- WISHLIST -->
-                    <li class="nav-item">
-                        <a href="{{ url('/wishlist') }}" class="nav-icon-btn" title="Wishlist">
-                            <i class="fa-regular fa-heart"></i>
-                        </a>
-                    </li>
+                <!-- WISHLIST -->
+                <li class="nav-item">
+                    <a href="{{ url('/wishlist') }}" class="nav-icon-btn" title="Wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </a>
+                </li>
 
-                    <!-- KERANJANG -->
-                    <li class="nav-item">
-                        <a href="{{ route('cart.index') }}" class="nav-icon-btn position-relative" title="Keranjang">
-                            <i class="fa-solid fa-bag-shopping"></i>
-                            <span class="cart-badge">3</span>
-                        </a>
-                    </li>
+                <!-- KERANJANG -->
+                <li class="nav-item">
+                    <a href="{{ route('user.cart.index') }}" class="nav-icon-btn position-relative" title="Keranjang">
+                        <i class="fa-solid fa-bag-shopping"></i>
 
-                    <!-- NOTIFIKASI -->
-                    <li class="nav-item">
-                        <a href="{{ route('orders.history') }}" class="nav-icon-btn position-relative" title="Notifikasi">
-                            <i class="fa-regular fa-bell"></i>
-                            <span class="notif-badge"></span>
-                        </a>
-                    </li>
 
-                    <!-- USER DROPDOWN -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-user-btn dropdown-toggle" href="#"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <div class="avatar-circle">
-                                {{ strtoupper(substr(auth()->user()->nama_pengguna, 0, 1)) }}
-                            </div>
-                            <span class="d-none d-lg-inline ms-1 user-name">{{ auth()->user()->nama_pengguna }}</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end user-dropdown shadow">
-                            <li>
-                                <div class="dropdown-header-info">
-                                    <div class="avatar-circle-lg">
-                                        {{ strtoupper(substr(auth()->user()->nama_pengguna, 0, 1)) }}
-                                    </div>
-                                    <div>
-                                        <div class="fw-semibold">{{ auth()->user()->nama_lengkap ?? auth()->user()->nama_pengguna }}</div>
-                                        <small class="text-muted">{{ auth()->user()->email }}</small>
-                                    </div>
+                        <span class="cart-badge" id="cart-count">0</span>
+                    </a>
+                </li>
+
+                <!-- NOTIFIKASI -->
+                <li class="nav-item">
+                    <a href="{{ route('orders.history') }}" class="nav-icon-btn position-relative" title="Notifikasi">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="notif-badge"></span>
+                    </a>
+                </li>
+
+                <!-- USER DROPDOWN -->
+                <li class="nav-item dropdown">
+                    <a class="nav-user-btn dropdown-toggle" href="#"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="avatar-circle">
+                            {{ strtoupper(substr(auth()->user()->nama_pengguna, 0, 1)) }}
+                        </div>
+                        <span class="d-none d-lg-inline ms-1 user-name">{{ auth()->user()->nama_pengguna }}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end user-dropdown shadow">
+                        <li>
+                            <div class="dropdown-header-info">
+                                <div class="avatar-circle-lg">
+                                    {{ strtoupper(substr(auth()->user()->nama_pengguna, 0, 1)) }}
                                 </div>
-                            </li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item" href="{{ route('profile') }}">
-                                    <i class="fa-regular fa-user me-2"></i> Profil Saya
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{ url('/pesanan') }}">
-                                    <i class="fa-regular fa-clipboard me-2"></i> Pesanan Saya
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{ url('/toko') }}">
-                                    <i class="fa-solid fa-store me-2"></i> Toko Saya
-                                </a>
-                            </li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <button type="submit" class="dropdown-item text-danger">
-                                        <i class="fa-solid fa-arrow-right-from-bracket me-2"></i> Keluar
-                                    </button>
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
+                                <div>
+                                    <div class="fw-semibold">{{ auth()->user()->nama_lengkap ?? auth()->user()->nama_pengguna }}</div>
+                                    <small class="text-muted">{{ auth()->user()->email }}</small>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('profile') }}">
+                                <i class="fa-regular fa-user me-2"></i> Profil Saya
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ url('/pesanan') }}">
+                                <i class="fa-regular fa-clipboard me-2"></i> Pesanan Saya
+                            </a>
+                        </li>
+                        <li>
+                            @auth
+                            @if(auth()->user()->toko)
+                            <a class="dropdown-item" href="{{ route('seller.dashboard') }}">
+                                <i class="fa-solid fa-store me-2"></i> Dashboard Toko
+                            </a>
+                            @else
+                            <a class="dropdown-item" href="{{ route('seller.register') }}">
+                                <i class="fa-solid fa-store me-2"></i> Daftar Toko
+                            </a>
+                            @endif
+                            @endauth
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="dropdown-item text-danger">
+                                    <i class="fa-solid fa-arrow-right-from-bracket me-2"></i> Keluar
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
                 @endguest
 
             </ul>
@@ -479,4 +493,43 @@
         const nav = document.getElementById('mainNavbar');
         if (nav) nav.classList.toggle('scrolled', window.scrollY > 20);
     });
+
+    function tambahKeranjang(id) {
+        const qty = document.getElementById('qty').value;
+        const btn = document.getElementById('btn-cart');
+
+        // 🔥 aktifkan loading
+        btn.classList.add('btn-loading');
+        btn.innerHTML = `<span class="spinner"></span> Menambahkan...`;
+
+        fetch("{{ route('cart.add') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({
+                    id_produk: id,
+                    qty: qty
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                // update badge
+                document.getElementById("cart-count").innerText = data.total;
+
+                // 🔥 balik ke normal
+                btn.classList.remove('btn-loading');
+                btn.innerHTML = "🛒 Keranjang";
+
+                // optional notif
+                showToast("Produk berhasil ditambahkan");
+            })
+            .catch(err => {
+                console.error(err);
+
+                btn.classList.remove('btn-loading');
+                btn.innerHTML = "🛒 Keranjang";
+            });
+    }
 </script>

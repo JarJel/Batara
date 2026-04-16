@@ -330,7 +330,7 @@
 
 <body>
 
-  @include('partials.navbar')
+  @include('user.partials.navbar')
 
   {{-- PAGE HEADER --}}
   <div class="page-header">

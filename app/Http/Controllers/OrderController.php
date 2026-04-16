@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alamat;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Pesanan;
@@ -25,6 +26,7 @@ class OrderController extends Controller
     {
         $user = Auth::user();
 
+        $alamat = Alamat::where('id_pengguna', $user->id_pengguna)->first();
         // =====================
         // CASE 1: BUY NOW
         // =====================
@@ -48,6 +50,7 @@ class OrderController extends Controller
                 ->map(function ($item) {
                     return (object)[
                         'id_produk' => $item->id_produk,
+                        'id_varian_produk' => $item->id_varian_produk,
                         'nama_produk' => $item->produk->nama_produk ?? 'Produk',
                         'harga' => $item->produk->harga_dasar ?? 0,
                         'qty' => $item->jumlah_produk ?? 1
@@ -59,7 +62,7 @@ class OrderController extends Controller
             return $item->harga * $item->qty;
         });
 
-        return view('checkout.index', compact('items', 'total'));
+        return view('user.checkout.index', compact('items', 'total', 'alamat'));
     }
 
     // 🔥 PROSES CHECKOUT
@@ -67,23 +70,33 @@ class OrderController extends Controller
     {
         $user = Auth::user();
 
-        $items = json_decode($request->items);
+        $items = collect(json_decode($request->items));
 
         $total = collect($items)->sum(function ($item) {
             return $item->harga * $item->qty;
         });
 
+        $id_toko = null;
+
+        if ($items->count() > 0) {
+            $produk = Produk::where('id_produk', $items[0]->id_produk)->first();
+            $id_toko = $produk->id_toko ?? null;
+        }
+
         // buat pesanan
         $order = Pesanan::create([
             'id_pengguna' => $user->id_pengguna,
+            'id_toko' => $id_toko,
             'total_harga_produk' => $total,
             'status' => 'menunggu'
         ]);
+
 
         // simpan detail
         foreach ($items as $item) {
             ItemPesanan::create([
                 'id_pesanan' => $order->id_pesanan,
+                'id_varian_produk' => $item->id_varian_produk,
                 'nama_produk_snapshot' => $item->nama_produk,
                 'harga_saat_pesan' => $item->harga,
                 'jumlah' => $item->qty,
@@ -106,6 +119,6 @@ class OrderController extends Controller
             ->orderBy('id_pesanan', 'desc')
             ->get();
 
-        return view('orders.history', compact('orders'));
+        return view('user.orders.history', compact('orders'));
     }
 }

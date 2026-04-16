@@ -870,7 +870,7 @@
 <body>
 
     {{-- ===== NAVBAR ===== --}}
-    @include('partials.navbar')
+    @include('user.partials.navbar')
     @if(session('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ session('success') }}
@@ -1035,28 +1035,21 @@
 
                 @foreach($products as $p)
                 <div class="col">
-                    <div class="product-card">
+                    <div class="product-card"
+                        onclick="window.location='{{ route('produk.show', $p->id_produk) }}'"
+                        style="cursor:pointer;">
 
                         <div class="product-img-wrap">
-                            <!-- sementara pakai dummy image -->
                             <img src="https://via.placeholder.com/400" alt="{{ $p->nama_produk }}">
 
-                            <button class="product-wish">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
-
                             <div class="product-actions">
-                                <form method="POST" action="{{ route('cart.add') }}">
+                                <button onclick="tambahKeranjang({{ $p->id_produk }})" class="btn-cart">
+                                    🛒 Keranjang
+                                </button>
+                                <form action="{{ route('buy.now') }}" method="POST" onclick="event.stopPropagation();">
                                     @csrf
                                     <input type="hidden" name="id_produk" value="{{ $p->id_produk }}">
-                                    <button class="btn-cart">
-                                        <i class="fa-solid fa-bag-shopping"></i> Keranjang
-                                    </button>
-                                </form>
-                                <form action="{{ route('buy.now') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="id_produk" value="{{ $p->id_produk }}">
-                                    <button type="submit" class="btn-buy">
+                                    <button class="btn-buy">
                                         Beli
                                     </button>
                                 </form>
@@ -1064,31 +1057,14 @@
                         </div>
 
                         <div class="product-info">
-                            <div class="product-store">
-                                <i class="fa-solid fa-store"></i>
-                                BUMDes Store
-                            </div>
-
                             <div class="product-name">
                                 {{ $p->nama_produk }}
                             </div>
 
-                            <div>
-                                <span class="product-price">
-                                    Rp {{ number_format($p->harga_dasar) }}
-                                </span>
-                            </div>
-
-                            <div class="product-meta">
-                                <div class="product-rating">
-                                    ⭐ {{ $p->rating_produk ?? 0 }}
-                                </div>
-                                <div class="product-sold">
-                                    Terjual {{ $p->jumlah_rating_produk ?? 0 }}
-                                </div>
-                            </div>
+                            <span class="product-price">
+                                Rp {{ number_format($p->harga_dasar) }}
+                            </span>
                         </div>
-
                     </div>
                 </div>
                 @endforeach
@@ -1283,7 +1259,8 @@
                 }
             });
         });
-    </script>
+
+        
 
 </body>
 

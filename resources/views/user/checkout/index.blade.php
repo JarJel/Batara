@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,12 +25,16 @@
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
-      --shadow-sm: 0 2px 8px rgba(45,106,79,.08);
-      --shadow-md: 0 6px 24px rgba(45,106,79,.12);
-      --shadow-lg: 0 16px 48px rgba(45,106,79,.16);
+      --shadow-sm: 0 2px 8px rgba(45, 106, 79, .08);
+      --shadow-md: 0 6px 24px rgba(45, 106, 79, .12);
+      --shadow-lg: 0 16px 48px rgba(45, 106, 79, .16);
     }
 
-    *, *::before, *::after { box-sizing: border-box; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
 
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -42,9 +47,10 @@
       background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
       padding: 32px 0 28px;
     }
+
     .page-header .section-tag {
       display: inline-block;
-      background: rgba(255,255,255,.2);
+      background: rgba(255, 255, 255, .2);
       color: #fff;
       border-radius: 50px;
       padding: 3px 12px;
@@ -54,6 +60,7 @@
       text-transform: uppercase;
       margin-bottom: 10px;
     }
+
     .page-header h1 {
       font-family: 'Fraunces', serif;
       font-size: 1.6rem;
@@ -61,22 +68,28 @@
       color: #fff;
       margin: 0 0 4px;
     }
+
     .page-header p {
-      color: rgba(255,255,255,.75);
+      color: rgba(255, 255, 255, .75);
       font-size: .875rem;
       margin: 0 0 20px;
     }
+
     .bs-breadcrumb {
       font-size: .8rem;
-      color: rgba(255,255,255,.7);
+      color: rgba(255, 255, 255, .7);
       margin-bottom: 14px;
     }
+
     .bs-breadcrumb a {
-      color: rgba(255,255,255,.9);
+      color: rgba(255, 255, 255, .9);
       text-decoration: none;
       font-weight: 600;
     }
-    .bs-breadcrumb a:hover { color: var(--accent); }
+
+    .bs-breadcrumb a:hover {
+      color: var(--accent);
+    }
 
     /* STEPS */
     .checkout-steps {
@@ -84,31 +97,57 @@
       align-items: center;
       gap: 0;
     }
+
     .checkout-step {
       display: flex;
       align-items: center;
       gap: 6px;
       font-size: .8rem;
       font-weight: 600;
-      color: rgba(255,255,255,.5);
+      color: rgba(255, 255, 255, .5);
     }
-    .checkout-step.active { color: #fff; }
-    .checkout-step.done   { color: rgba(255,255,255,.7); }
+
+    .checkout-step.active {
+      color: #fff;
+    }
+
+    .checkout-step.done {
+      color: rgba(255, 255, 255, .7);
+    }
+
     .checkout-step .num {
-      width: 24px; height: 24px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
-      border: 2px solid rgba(255,255,255,.3);
-      display: flex; align-items: center; justify-content: center;
-      font-size: .72rem; font-weight: 700;
+      border: 2px solid rgba(255, 255, 255, .3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .72rem;
+      font-weight: 700;
     }
-    .checkout-step.active .num { background: #fff; color: var(--primary-dark); border-color: #fff; }
-    .checkout-step.done   .num { background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.5); }
+
+    .checkout-step.active .num {
+      background: #fff;
+      color: var(--primary-dark);
+      border-color: #fff;
+    }
+
+    .checkout-step.done .num {
+      background: rgba(255, 255, 255, .2);
+      border-color: rgba(255, 255, 255, .5);
+    }
+
     .checkout-step-line {
-      width: 32px; height: 2px;
-      background: rgba(255,255,255,.2);
+      width: 32px;
+      height: 2px;
+      background: rgba(255, 255, 255, .2);
       margin: 0 6px;
     }
-    .checkout-step-line.done { background: rgba(255,255,255,.5); }
+
+    .checkout-step-line.done {
+      background: rgba(255, 255, 255, .5);
+    }
 
     /* LAYOUT */
     .checkout-layout {
@@ -126,7 +165,11 @@
       overflow: hidden;
       margin-bottom: 16px;
     }
-    .co-card:last-child { margin-bottom: 0; }
+
+    .co-card:last-child {
+      margin-bottom: 0;
+    }
+
     .co-card-header {
       padding: 16px 20px;
       border-bottom: 1px solid var(--border);
@@ -134,6 +177,7 @@
       align-items: center;
       gap: 10px;
     }
+
     .co-card-header h2 {
       font-family: 'Fraunces', serif;
       font-size: 1rem;
@@ -141,13 +185,18 @@
       color: var(--text);
       margin: 0;
     }
+
     .step-badge {
-      width: 24px; height: 24px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       background: var(--primary);
       color: #fff;
-      display: flex; align-items: center; justify-content: center;
-      font-size: .72rem; font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .72rem;
+      font-weight: 700;
       flex-shrink: 0;
     }
 
@@ -160,55 +209,87 @@
       border-bottom: 1px solid var(--border);
       align-items: center;
     }
-    .co-item:last-child { border-bottom: none; }
+
+    .co-item:last-child {
+      border-bottom: none;
+    }
+
     .co-item-img {
-      width: 52px; height: 52px;
+      width: 52px;
+      height: 52px;
       border-radius: 8px;
       background: var(--bg);
       border: 1px solid var(--border);
       object-fit: cover;
     }
+
     .co-item-store {
-      font-size: .7rem; color: var(--primary);
-      font-weight: 600; margin-bottom: 2px;
+      font-size: .7rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 2px;
     }
+
     .co-item-name {
-      font-weight: 700; font-size: .875rem;
-      color: var(--text); margin-bottom: 4px;
+      font-weight: 700;
+      font-size: .875rem;
+      color: var(--text);
+      margin-bottom: 4px;
       line-height: 1.35;
     }
+
     .co-item-qty {
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 50px;
       padding: 1px 10px;
-      font-size: .72rem; font-weight: 600;
+      font-size: .72rem;
+      font-weight: 600;
       color: var(--text-muted);
     }
+
     .co-item-subtotal {
       font-family: 'Fraunces', serif;
-      font-size: .95rem; font-weight: 700;
+      font-size: .95rem;
+      font-weight: 700;
       color: var(--primary-dark);
       text-align: right;
     }
+
     .co-item-sublabel {
-      font-size: .68rem; color: var(--text-muted);
-      text-align: right; margin-bottom: 2px;
+      font-size: .68rem;
+      color: var(--text-muted);
+      text-align: right;
+      margin-bottom: 2px;
     }
 
     /* ADDRESS FORM */
-    .co-address-body { padding: 16px 20px; }
+    .co-address-body {
+      padding: 16px 20px;
+    }
+
     .co-form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
-    .co-form-group { display: flex; flex-direction: column; gap: 4px; }
-    .co-form-group.full { grid-column: 1 / -1; }
+
+    .co-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .co-form-group.full {
+      grid-column: 1 / -1;
+    }
+
     .co-form-group label {
-      font-size: .78rem; font-weight: 600;
+      font-size: .78rem;
+      font-weight: 600;
       color: var(--text-muted);
     }
+
     .co-form-group input,
     .co-form-group select,
     .co-form-group textarea {
@@ -222,13 +303,18 @@
       background: #fff;
       transition: border-color .2s;
     }
+
     .co-form-group input:focus,
     .co-form-group select:focus,
     .co-form-group textarea:focus {
       border-color: var(--primary-light);
-      box-shadow: 0 0 0 3px rgba(64,145,108,.08);
+      box-shadow: 0 0 0 3px rgba(64, 145, 108, .08);
     }
-    .co-form-group textarea { resize: none; height: 70px; }
+
+    .co-form-group textarea {
+      resize: none;
+      height: 70px;
+    }
 
     /* SHIPPING OPTIONS */
     .co-shipping-body {
@@ -237,6 +323,7 @@
       flex-direction: column;
       gap: 8px;
     }
+
     .ship-option {
       border: 1.5px solid var(--border);
       border-radius: 10px;
@@ -247,49 +334,78 @@
       cursor: pointer;
       transition: border-color .2s, background .2s;
     }
+
     .ship-option:has(input:checked),
     .ship-option:hover {
       border-color: var(--primary-light);
-      background: rgba(45,106,79,.03);
+      background: rgba(45, 106, 79, .03);
     }
+
     .ship-option input[type=radio] {
       accent-color: var(--primary);
-      width: 16px; height: 16px;
-      flex-shrink: 0; cursor: pointer;
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      cursor: pointer;
     }
-    .ship-name { font-weight: 700; font-size: .875rem; color: var(--text); }
-    .ship-eta  { font-size: .75rem; color: var(--text-muted); }
+
+    .ship-name {
+      font-weight: 700;
+      font-size: .875rem;
+      color: var(--text);
+    }
+
+    .ship-eta {
+      font-size: .75rem;
+      color: var(--text-muted);
+    }
+
     .ship-price {
       margin-left: auto;
       font-family: 'Fraunces', serif;
-      font-size: .95rem; font-weight: 700;
+      font-size: .95rem;
+      font-weight: 700;
       color: var(--primary-dark);
     }
+
     .ship-free {
       margin-left: auto;
-      font-size: .8rem; font-weight: 700;
+      font-size: .8rem;
+      font-weight: 700;
       color: var(--primary);
-      background: rgba(45,106,79,.08);
+      background: rgba(45, 106, 79, .08);
       border-radius: 50px;
       padding: 2px 10px;
     }
 
     /* PAYMENT OPTIONS */
-    .co-payment-body { padding: 16px 20px; }
-    .pay-group { margin-bottom: 20px; }
-    .pay-group:last-child { margin-bottom: 0; }
+    .co-payment-body {
+      padding: 16px 20px;
+    }
+
+    .pay-group {
+      margin-bottom: 20px;
+    }
+
+    .pay-group:last-child {
+      margin-bottom: 0;
+    }
+
     .pay-group-label {
-      font-size: .75rem; font-weight: 700;
+      font-size: .75rem;
+      font-weight: 700;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: .5px;
       margin-bottom: 10px;
     }
+
     .pay-options-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 8px;
     }
+
     .pay-option {
       border: 1.5px solid var(--border);
       border-radius: 10px;
@@ -302,39 +418,82 @@
       transition: all .2s;
       position: relative;
     }
+
     .pay-option:has(input:checked),
     .pay-option:hover {
       border-color: var(--primary-light);
-      background: rgba(45,106,79,.03);
+      background: rgba(45, 106, 79, .03);
     }
+
     .pay-option:has(input:checked)::after {
       content: '';
       position: absolute;
-      top: 6px; right: 6px;
-      width: 8px; height: 8px;
+      top: 6px;
+      right: 6px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: var(--primary);
     }
-    .pay-option input { display: none; }
-    .pay-icon {
-      width: 44px; height: 28px;
-      border-radius: 6px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: .65rem; font-weight: 800;
-      color: #fff; letter-spacing: .3px;
+
+    .pay-option input {
+      display: none;
     }
-    .pay-icon.bca     { background: #006CB8; }
-    .pay-icon.bni     { background: #EA7926; }
-    .pay-icon.bri     { background: #00529C; }
-    .pay-icon.mandiri { background: #003D7A; }
-    .pay-icon.va      { background: #6B6B6B; }
-    .pay-icon.gopay   { background: #00AED6; }
-    .pay-icon.ovo     { background: #4C2A86; }
-    .pay-icon.dana    { background: #118EEA; }
-    .pay-icon.cod     { background: var(--primary); }
+
+    .pay-icon {
+      width: 44px;
+      height: 28px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .65rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: .3px;
+    }
+
+    .pay-icon.bca {
+      background: #006CB8;
+    }
+
+    .pay-icon.bni {
+      background: #EA7926;
+    }
+
+    .pay-icon.bri {
+      background: #00529C;
+    }
+
+    .pay-icon.mandiri {
+      background: #003D7A;
+    }
+
+    .pay-icon.va {
+      background: #6B6B6B;
+    }
+
+    .pay-icon.gopay {
+      background: #00AED6;
+    }
+
+    .pay-icon.ovo {
+      background: #4C2A86;
+    }
+
+    .pay-icon.dana {
+      background: #118EEA;
+    }
+
+    .pay-icon.cod {
+      background: var(--primary);
+    }
+
     .pay-name {
-      font-size: .72rem; font-weight: 700;
-      color: var(--text); text-align: center;
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--text);
+      text-align: center;
     }
 
     /* SUMMARY CARD */
@@ -346,16 +505,24 @@
       position: sticky;
       top: 20px;
     }
+
     .summary-header {
       background: linear-gradient(135deg, var(--primary-dark), var(--primary));
       padding: 16px 20px;
     }
+
     .summary-header h3 {
       font-family: 'Fraunces', serif;
-      font-size: 1rem; font-weight: 700;
-      color: #fff; margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0;
     }
-    .summary-body { padding: 20px; }
+
+    .summary-body {
+      padding: 20px;
+    }
+
     .summary-row {
       display: flex;
       justify-content: space-between;
@@ -363,20 +530,39 @@
       padding: 7px 0;
       font-size: .875rem;
     }
-    .summary-row .label { color: var(--text-muted); }
-    .summary-row .val   { font-weight: 600; color: var(--text); }
-    .summary-row .val.green { color: var(--primary); }
+
+    .summary-row .label {
+      color: var(--text-muted);
+    }
+
+    .summary-row .val {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .summary-row .val.green {
+      color: var(--primary);
+    }
+
     .summary-row.total {
       border-top: 1.5px solid var(--border);
       margin-top: 8px;
       padding-top: 14px;
     }
-    .summary-row.total .label { font-weight: 700; font-size: .95rem; color: var(--text); }
+
+    .summary-row.total .label {
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--text);
+    }
+
     .summary-row.total .val {
       font-family: 'Fraunces', serif;
-      font-size: 1.25rem; font-weight: 700;
+      font-size: 1.25rem;
+      font-weight: 700;
       color: var(--primary-dark);
     }
+
     .btn-checkout-now {
       width: 100%;
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
@@ -385,43 +571,71 @@
       border-radius: 50px;
       padding: 14px;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 700; font-size: .95rem;
+      font-weight: 700;
+      font-size: .95rem;
       cursor: pointer;
       margin-top: 16px;
     }
-    .btn-checkout-now:hover { opacity: .9; }
+
+    .btn-checkout-now:hover {
+      opacity: .9;
+    }
 
     .trust-list {
       border-top: 1px solid var(--border);
-      margin-top: 16px; padding-top: 14px;
-      display: flex; flex-direction: column; gap: 8px;
+      margin-top: 16px;
+      padding-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
+
     .trust-item {
-      display: flex; align-items: center; gap: 8px;
-      font-size: .75rem; color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .75rem;
+      color: var(--text-muted);
     }
+
     .trust-icon {
-      width: 26px; height: 26px;
+      width: 26px;
+      height: 26px;
       background: #E8F5E9;
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--primary); font-size: 11px; flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 11px;
+      flex-shrink: 0;
     }
 
     @media (max-width: 991.98px) {
-      .checkout-layout { grid-template-columns: 1fr; }
+      .checkout-layout {
+        grid-template-columns: 1fr;
+      }
     }
+
     @media (max-width: 575.98px) {
-      .co-form-grid { grid-template-columns: 1fr; }
-      .pay-options-grid { grid-template-columns: repeat(3, 1fr); }
-      .co-item { grid-template-columns: 48px 1fr auto; }
+      .co-form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pay-options-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .co-item {
+        grid-template-columns: 48px 1fr auto;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  @include('partials.navbar')
+  @include('user.partials.navbar')
 
   {{-- PAGE HEADER --}}
   <div class="page-header">
@@ -429,7 +643,7 @@
       <div class="bs-breadcrumb">
         <a href="{{ url('/') }}">Beranda</a>
         <i class="fa-solid fa-chevron-right mx-1" style="font-size:.65rem"></i>
-        <a href="{{ route('cart.index') }}">Keranjang</a>
+        <a href="{{ route('user.cart.index') }}">Keranjang</a>
         <i class="fa-solid fa-chevron-right mx-1" style="font-size:.65rem"></i>
         <span>Checkout</span>
       </div>
@@ -542,59 +756,70 @@
             </div>
           </div> -->
 
-          <!-- {{-- PENGIRIMAN --}}
+          {{-- ALAMAT --}}
           <div class="co-card">
             <div class="co-card-header">
-              <div class="step-badge">3</div>
-              <h2>Metode Pengiriman</h2>
+              <div class="step-badge">2</div>
+              <h2>Alamat Pengiriman</h2>
+              <a href="{{ url('/profil') }}" class="ms-auto"
+                style="font-size:.78rem;font-weight:700;color:var(--primary);text-decoration:none;border:1.5px solid var(--border);border-radius:50px;padding:4px 14px;transition:all .2s;"
+                onmouseover="this.style.borderColor='var(--primary)'"
+                onmouseout="this.style.borderColor='var(--border)'">
+                <i class="fa-solid fa-pen me-1"></i> Ubah Alamat
+              </a>
             </div>
-            <div class="co-shipping-body">
-              <label class="ship-option">
-                <input type="radio" name="pengiriman" value="jne_reg" checked>
-                <div>
-                  <div class="ship-name">JNE Reguler</div>
-                  <div class="ship-eta">Estimasi 2–3 hari kerja</div>
-                </div>
-                <div class="ship-price">Rp 18.000</div>
-              </label>
-              <label class="ship-option">
-                <input type="radio" name="pengiriman" value="jne_yes">
-                <div>
-                  <div class="ship-name">JNE YES (Yakin Esok Sampai)</div>
-                  <div class="ship-eta">Estimasi 1 hari kerja</div>
-                </div>
-                <div class="ship-price">Rp 38.000</div>
-              </label>
-              <label class="ship-option">
-                <input type="radio" name="pengiriman" value="sicepat">
-                <div>
-                  <div class="ship-name">SiCepat Reguler</div>
-                  <div class="ship-eta">Estimasi 2–4 hari kerja</div>
-                </div>
-                <div class="ship-price">Rp 15.000</div>
-              </label>
-              <label class="ship-option">
-                <input type="radio" name="pengiriman" value="gratis">
-                <div>
-                  <div class="ship-name">Gratis Ongkir</div>
-                  <div class="ship-eta">Estimasi 3–5 hari kerja · min. Rp 100.000</div>
-                </div>
-                <div class="ship-free">Gratis</div>
-              </label>
-            </div>
-          </div> -->
 
-          {{-- PEMBAYARAN --}}
-          <div class="co-card">
-            <div class="co-card-header">
-              <div class="step-badge">4</div>
-              <h2>Metode Pembayaran</h2>
+            @if($alamat)
+            <div style="padding:16px 20px;">
+              <div style="border:1.5px solid var(--primary-light);border-radius:10px;padding:14px 16px;background:rgba(45,106,79,.02);">
+                <div style="font-weight:700;font-size:.9rem;color:var(--text);display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+                  {{ $alamat->nama_penerima }}
+                  <span style="background:rgba(45,106,79,.1);color:var(--primary);border-radius:50px;padding:2px 10px;font-size:.7rem;font-weight:700;">Utama</span>
+                </div>
+                <div style="font-size:.78rem;color:var(--text-muted);margin-bottom:6px;">
+                  <i class="fa-solid fa-phone" style="font-size:.65rem;color:var(--primary);margin-right:4px"></i>
+                  {{ $alamat->no_hp }}
+                </div>
+                <div style="font-size:.82rem;color:var(--text);line-height:1.55;">
+                  <i class="fa-solid fa-location-dot" style="font-size:.7rem;color:var(--primary);margin-right:4px"></i>
+                  {{ $alamat->alamat_lengkap }}, {{ $alamat->kota }}
+                  @if($alamat->kode_pos), {{ $alamat->kode_pos }}@endif
+                </div>
+              </div>
             </div>
-            <div class="co-payment-body">
 
-              <div class="pay-group">
-                <div class="pay-group-label">Transfer Bank</div>
-                <div class="pay-options-grid">
+            @else
+            <div style="padding:32px 20px;text-align:center;">
+              <i class="fa-solid fa-location-dot" style="font-size:2rem;color:var(--border);margin-bottom:12px;display:block;"></i>
+              <p style="font-weight:600;font-size:.9rem;color:var(--text);margin-bottom:4px;">Belum Ada Alamat</p>
+              <p style="font-size:.82rem;color:var(--text-muted);margin-bottom:16px;">
+                Tambahkan alamat pengiriman di halaman profil terlebih dahulu.
+              </p>
+              <a href="{{ url('/profil') }}"
+                style="background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;border:none;border-radius:50px;padding:9px 22px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.82rem;text-decoration:none;">
+                <i class="fa-solid fa-plus me-1"></i> Tambah Alamat
+              </a>
+            </div>
+            @endif
+          </div>
+        </div>
+
+        {{-- KANAN: SUMMARY --}}
+        <div>
+          <div class="summary-card">
+            <div class="summary-header">
+              <h3><i class="fa-solid fa-receipt me-2"></i>Ringkasan Pembayaran</h3>
+            </div>
+            <div class="summary-body">
+
+              {{-- METODE PEMBAYARAN (dipindah ke sini) --}}
+              <div style="margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border);">
+                <div style="font-size:.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:.5px; margin-bottom:8px;">
+                  Metode Pembayaran
+                </div>
+
+                <div style="font-size:.68rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:.4px; margin-bottom:6px;">Transfer Bank</div>
+                <div class="pay-options-grid" style="grid-template-columns: repeat(3,1fr); margin-bottom:10px;">
                   <label class="pay-option">
                     <input type="radio" name="metode_bayar" value="bca" checked>
                     <div class="pay-icon bca">BCA</div>
@@ -621,11 +846,9 @@
                     <div class="pay-name">Virtual Account</div>
                   </label>
                 </div>
-              </div>
 
-              <div class="pay-group">
-                <div class="pay-group-label">Dompet Digital</div>
-                <div class="pay-options-grid">
+                <div style="font-size:.68rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:.4px; margin-bottom:6px;">Dompet Digital</div>
+                <div class="pay-options-grid" style="grid-template-columns: repeat(3,1fr); margin-bottom:10px;">
                   <label class="pay-option">
                     <input type="radio" name="metode_bayar" value="gopay">
                     <div class="pay-icon gopay">GP</div>
@@ -642,11 +865,9 @@
                     <div class="pay-name">DANA</div>
                   </label>
                 </div>
-              </div>
 
-              <div class="pay-group">
-                <div class="pay-group-label">Lainnya</div>
-                <div class="pay-options-grid">
+                <div style="font-size:.68rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:.4px; margin-bottom:6px;">Lainnya</div>
+                <div class="pay-options-grid" style="grid-template-columns: repeat(3,1fr);">
                   <label class="pay-option">
                     <input type="radio" name="metode_bayar" value="cod">
                     <div class="pay-icon cod">COD</div>
@@ -655,25 +876,14 @@
                 </div>
               </div>
 
-            </div>
-          </div>
-
-        </div>
-
-        {{-- KANAN: SUMMARY --}}
-        <div>
-          <div class="summary-card">
-            <div class="summary-header">
-              <h3><i class="fa-solid fa-receipt me-2"></i>Ringkasan Pembayaran</h3>
-            </div>
-            <div class="summary-body">
+              {{-- RINCIAN HARGA --}}
               <div class="summary-row">
                 <span class="label">Subtotal ({{ count($items) }} produk)</span>
                 <span class="val">Rp {{ number_format($total) }}</span>
               </div>
               <div class="summary-row">
                 <span class="label">Ongkos Kirim</span>
-                <span class="val" id="ongkir-display">Rp 18.000</span>
+                <span class="val" id="ongkir-display">Rp 0</span>
               </div>
               <div class="summary-row">
                 <span class="label">Diskon</span>
@@ -685,7 +895,7 @@
               </div>
               <div class="summary-row total">
                 <span class="label">Total</span>
-                <span class="val" id="total-display">Rp {{ number_format($total + 18000) }}</span>
+                <span class="val" id="total-display">Rp {{ number_format($total) }}</span>
               </div>
               <button type="submit" class="btn-checkout-now">
                 <i class="fa-solid fa-lock me-2"></i> Checkout Sekarang
@@ -710,12 +920,27 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    const subtotal = {{ $total }};
-    const ongkirMap = { jne_reg: 18000, jne_yes: 38000, sicepat: 15000, gratis: 0 };
+    const subtotal = {
+      {
+        $total
+      }
+    };
+    const ongkirMap = {
+      jne_reg: 18000,
+      jne_yes: 38000,
+      sicepat: 15000,
+      gratis: 0
+    };
     const metodeMap = {
-      bca: 'BCA Transfer', bni: 'BNI Transfer', bri: 'BRI Transfer',
-      mandiri: 'Mandiri Transfer', va: 'Virtual Account',
-      gopay: 'GoPay', ovo: 'OVO', dana: 'DANA', cod: 'Bayar di Tempat'
+      bca: 'BCA Transfer',
+      bni: 'BNI Transfer',
+      bri: 'BRI Transfer',
+      mandiri: 'Mandiri Transfer',
+      va: 'Virtual Account',
+      gopay: 'GoPay',
+      ovo: 'OVO',
+      dana: 'DANA',
+      cod: 'Bayar di Tempat'
     };
 
     function fmt(n) {
@@ -723,14 +948,14 @@
     }
 
     function updateSummary() {
-      const ship  = document.querySelector('input[name="pengiriman"]:checked')?.value || 'jne_reg';
+      const ship = document.querySelector('input[name="pengiriman"]:checked')?.value || 'jne_reg';
       const bayar = document.querySelector('input[name="metode_bayar"]:checked')?.value || 'bca';
       const ongkir = ongkirMap[ship] ?? 18000;
-      const total  = subtotal + ongkir;
+      const total = subtotal + ongkir;
 
       document.getElementById('ongkir-display').textContent = ongkir === 0 ? 'Gratis' : fmt(ongkir);
       document.getElementById('metode-display').textContent = metodeMap[bayar] ?? bayar;
-      document.getElementById('total-display').textContent  = fmt(total);
+      document.getElementById('total-display').textContent = fmt(total);
     }
 
     document.querySelectorAll('input[name="pengiriman"], input[name="metode_bayar"]')
@@ -738,4 +963,5 @@
   </script>
 
 </body>
+
 </html>

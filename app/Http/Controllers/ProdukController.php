@@ -11,6 +11,12 @@ class ProdukController extends Controller
     public function index()
     {
         $products = Produk::all();
-        return view('homepage.home', compact('products'));
+        return view('user.homepage.home', compact('products'));
+    }
+
+    public function show($id)
+    {
+        $product = Produk::where('id_produk', $id)->firstOrFail();
+        return view('user.produk.show', compact('product'));
     }
 }

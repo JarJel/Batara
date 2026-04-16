@@ -15,5 +15,7 @@ class RoleSeeder extends Seeder
             ['nama_role' => 'seller'],
             ['nama_role' => 'user'],
         ]);
+
+        
     }
 }

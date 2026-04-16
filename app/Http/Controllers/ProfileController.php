@@ -13,7 +13,7 @@ class ProfileController extends Controller
         $user = Auth::user();
         $alamat = Alamat::where('id_pengguna', $user->id_pengguna)->get();
 
-        return view('homepage.profile', compact('user', 'alamat'));
+        return view('user.homepage.profile', compact('user', 'alamat'));
     }
 
     public function storeAlamat(Request $request)

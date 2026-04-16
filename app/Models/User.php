@@ -67,7 +67,13 @@ class User extends Authenticatable
         );
     }
 
-    public function alamat() {
+    public function alamat()
+    {
         return $this->hasMany(Alamat::class, ' id_pengguna');
+    }
+
+    public function toko()
+    {
+        return $this->hasOne(\App\Models\Toko::class, 'id_pengguna');
     }
 }

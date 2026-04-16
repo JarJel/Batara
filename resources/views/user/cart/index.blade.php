@@ -379,7 +379,7 @@
 <body>
 
     {{-- NAVBAR --}}
-    @include('partials.navbar')
+    @include('user.partials.navbar')
 
     {{-- PAGE HEADER --}}
     <div class="cart-page-header">
@@ -471,7 +471,7 @@
                         </div>
                         <div class="summary-row">
                             <span class="label">Ongkos Kirim</span>
-                            <span class="val">Rp 0/span>
+                            <span class="val">Rp 0</span>
                         </div>
                         <div class="summary-row">
                             <span class="label">Diskon Promo</span>
